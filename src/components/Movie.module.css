@@ -1,0 +1,28 @@
+.movie {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.poster-box {
+  max-width: 5rem;
+  height: 5rem;
+}
+
+.movie-poster {
+  height: 100%;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.movie-title {
+  text-decoration: underline;
+}
+
+.movie-year {
+  font-size: 1.4rem;
+}

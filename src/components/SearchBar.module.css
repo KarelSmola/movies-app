@@ -1,0 +1,16 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.search-label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.search-input {
+  padding: 0.5rem;
+  font-size: 1.6rem;
+}

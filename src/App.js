@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
+import Loader from "./components/Loader";
+import ErrorMessage from "./components/ErrorMessage";
+import MoviesList from "./components/MoviesList";
 
 const KEY = "668f504b";
 
@@ -27,7 +30,16 @@ const App = () => {
         const data = await response.json();
         if (data.Response === "False") throw new Error("No movies found");
 
-        setMovies(data.Search);
+        const transformedMovies = data.Search.map((movie) => {
+          return {
+            id: movie.imdbID,
+            title: movie.Title,
+            year: movie.Year,
+            poster: movie.Poster,
+          };
+        });
+
+        setMovies(transformedMovies);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -51,15 +63,9 @@ const App = () => {
   return (
     <div>
       <SearchBar searchMovie={searchMovie} setSearchMovie={setSearchMovie} />
-      {isLoading && <p>Loading movies...</p>}
-      {!isLoading && !error && (
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.imdbID}>{movie.Title}</li>
-          ))}
-        </ul>
-      )}
-      {error && <p>{error}</p>}
+      {isLoading && <Loader loadingMessage={"Loading Movies..."} />}
+      {!isLoading && !error && <MoviesList movies={movies} />}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 };
