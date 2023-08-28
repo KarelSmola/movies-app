@@ -2,9 +2,14 @@ import React from "react";
 
 import classes from "./Movie.module.css";
 
-const Movie = ({ title, year, poster }) => {
+const Movie = ({ id, title, year, poster, onSelectedId }) => {
   return (
-    <li className={classes.movie}>
+    <li
+      className={classes.movie}
+      onClick={() => {
+        onSelectedId(id);
+      }}
+    >
       <figure className={classes["poster-box"]}>
         <img className={classes["movie-poster"]} src={poster} alt={title} />
       </figure>

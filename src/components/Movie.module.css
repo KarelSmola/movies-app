@@ -2,11 +2,16 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  cursor: pointer;
+  background-color: rgb(110, 0, 0);
+  color: #fff;
 }
 
 .poster-box {
-  max-width: 5rem;
+  width: 5rem;
   height: 5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .movie-poster {

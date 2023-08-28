@@ -1,16 +1,27 @@
 .search-bar {
+  grid-column: 1/-1;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  padding: 1rem;
+  padding: 2rem;
+  background-color: rgb(162, 0, 0);
 }
 
 .search-label {
   font-size: 2rem;
   font-weight: bold;
+  color: #fff;
 }
 
 .search-input {
-  padding: 0.5rem;
+  padding: 1rem;
   font-size: 1.6rem;
+  border: 2px solid transparent;
+}
+
+.search-input:focus {
+  outline: none;
+  border: 2px solid #000;
 }

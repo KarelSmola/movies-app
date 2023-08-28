@@ -3,11 +3,15 @@ import SearchBar from "./components/SearchBar";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
 import MoviesList from "./components/MoviesList";
+import MovieDetail from "./components/MovieDetail";
+
+import MainWrapper from "./components/UI/MainWrapper";
 
 const KEY = "668f504b";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
+  const [selectedId, setSelectedId] = useState(null);
   const [searchMovie, setSearchMovie] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -60,13 +64,25 @@ const App = () => {
     };
   }, [searchMovie]);
 
+  const selectedMovieId = (id) => {
+    setSelectedId(id);
+  };
+
+  const addToFavourite = (movie) => {
+    console.log(movie);
+  };
+
   return (
-    <div>
+    <MainWrapper>
       <SearchBar searchMovie={searchMovie} setSearchMovie={setSearchMovie} />
+
       {isLoading && <Loader loadingMessage={"Loading Movies..."} />}
-      {!isLoading && !error && <MoviesList movies={movies} />}
+      {!isLoading && !error && (
+        <MoviesList movies={movies} onSelectedId={selectedMovieId} />
+      )}
       {error && <ErrorMessage message={error} />}
-    </div>
+      <MovieDetail movieId={selectedId} onAddToFavourite={addToFavourite} />
+    </MainWrapper>
   );
 };
 

@@ -1,0 +1,65 @@
+.movie-detail {
+  grid-column: 2/3;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  background-color: rgb(110, 0, 0);
+  color: #fff;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title {
+  text-decoration: underline;
+}
+
+.genre {
+  text-transform: uppercase;
+}
+
+.director {
+  font-weight: 500;
+}
+
+.img-box {
+  width: 30rem;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+}
+
+.poster {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  gap: 3rem;
+}
+
+.description {
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  background-color: rgb(251, 0, 0);
+  color: #fff;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgb(49, 0, 0);
+}
