@@ -3,7 +3,11 @@ import React from "react";
 import classes from "./ErrorMessage.modules.css";
 
 const ErrorMessage = ({ message }) => {
-  return <p className={classes["error-message"]}>{message}</p>;
+  return (
+    <div>
+      <p className={classes.error}>⛔️ {message}</p>
+    </div>
+  );
 };
 
 export default ErrorMessage;

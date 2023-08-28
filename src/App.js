@@ -3,6 +3,7 @@ import SearchBar from "./components/SearchBar";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
 import MoviesList from "./components/MoviesList";
+import FavouriteMoviesList from "./components/FavouriteMoviesList";
 import MovieDetail from "./components/MovieDetail";
 
 import MainWrapper from "./components/UI/MainWrapper";
@@ -15,6 +16,7 @@ const App = () => {
   const [searchMovie, setSearchMovie] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [favouriteMovies, setFavouriteMovies] = useState([]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -69,7 +71,14 @@ const App = () => {
   };
 
   const addToFavourite = (movie) => {
-    console.log(movie);
+    setFavouriteMovies((prevMovie) => [...prevMovie, movie]);
+    setSelectedId(null);
+  };
+
+  const removeFromFavourites = (id) => {
+    setFavouriteMovies((prevFavourites) =>
+      prevFavourites.filter((movie) => movie.id !== id)
+    );
   };
 
   return (
@@ -81,7 +90,15 @@ const App = () => {
         <MoviesList movies={movies} onSelectedId={selectedMovieId} />
       )}
       {error && <ErrorMessage message={error} />}
-      <MovieDetail movieId={selectedId} onAddToFavourite={addToFavourite} />
+
+      {selectedId ? (
+        <MovieDetail movieId={selectedId} onAddToFavourite={addToFavourite} />
+      ) : (
+        <FavouriteMoviesList
+          favouriteMovies={favouriteMovies}
+          onRemoveFromFavourites={removeFromFavourites}
+        />
+      )}
     </MainWrapper>
   );
 };
