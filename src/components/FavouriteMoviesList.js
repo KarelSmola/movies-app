@@ -1,13 +1,24 @@
 import React from "react";
 import FavouriteMovie from "./FavouriteMovie";
+import FavouriteMoviesStat from "./FavouriteMoviesStat";
 
 import classes from "./FavouriteMoviesList.module.css";
 
-const FavouriteMoviesList = ({ favouriteMovies, onRemoveFromFavourites }) => {
+const FavouriteMoviesList = ({
+  favouriteMovies,
+  onRemoveFromFavourites,
+  moviesAmount,
+  totalTime,
+  averageRating,
+}) => {
   return (
-    <section>
-      <h1 className={classes.title}>Favourite movies</h1>
-      <ul>
+    <section className={classes["favourite-movies"]}>
+      <FavouriteMoviesStat
+        moviesAmount={moviesAmount}
+        totalTime={totalTime}
+        averageRating={averageRating}
+      />
+      <ul className={classes["favourite-movies-list"]}>
         {favouriteMovies.map((movie) => (
           <FavouriteMovie
             key={movie.id}

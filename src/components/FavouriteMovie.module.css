@@ -1,6 +1,37 @@
 .favourite-movie {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
   font-size: 1.6rem;
+  background-color: #222;
   color: #fff;
+}
+
+.favourite-movie-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.rating {
+}
+
+.runtime {
+}
+
+.remove {
+  border: 1px solid transparent;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 50%;
+  background-color: rgb(106, 4, 4);
+}
+
+.remove:hover {
+  cursor: pointer;
 }

@@ -1,7 +1,10 @@
-.title {
-  color: #fff;
+.favourite-movies {
+  background-color: #444;
+  padding: 1rem;
 }
 
-.favMovie {
-  color: #fff;
+.favourite-movies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

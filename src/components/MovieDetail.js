@@ -4,17 +4,8 @@ import classes from "./MovieDetail.module.css";
 
 const KEY = "668f504b";
 
-const MovieDetail = ({ movieId, onAddToFavourite }) => {
+const MovieDetail = ({ movieId, onAddToFavourite, movieAdded }) => {
   const [movieDetail, setMovieDetail] = useState([]);
-
-  // const {id: data.imdbID,
-  //   title: data.Title,
-  //   poster: data.Poster,
-  //   genre: data.Genre,
-  //   director: data.Director,
-  //   runtime: data.Runtime,
-  //   rating: data.imdbRating,
-  //   description: data.Plot,}= movieDetail
 
   const {
     imdbID: id,
@@ -56,12 +47,14 @@ const MovieDetail = ({ movieId, onAddToFavourite }) => {
       </div>
       <p className={classes.description}>{description}</p>
       <button
-        className={classes.btn}
+        className={
+          movieAdded ? `${classes.btn} ${classes.added}` : `${classes.btn}`
+        }
         onClick={() => {
           onAddToFavourite({ id, title, rating, runtime });
         }}
       >
-        Add to favurites
+        {movieAdded ? "Movie added" : "Add movie"}
       </button>
     </div>
   );

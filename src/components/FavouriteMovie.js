@@ -11,15 +11,18 @@ const FavouriteMovie = ({
 }) => {
   return (
     <li className={classes["favourite-movie"]}>
-      <p>{title}</p>
-      <p>{rating}</p>
-      <p>{runtime}</p>
+      <div className={classes["favourite-movie-info"]}>
+        <p className={classes.title}>{title}</p>
+        <p className={classes.rating}>⭐️ {rating}</p>
+        <p className={classes.runtime}> ⏳{runtime}</p>
+      </div>
       <button
+        className={classes.remove}
         onClick={() => {
           onRemoveFromFavourites(id);
         }}
       >
-        Remove
+        ❌
       </button>
     </li>
   );
