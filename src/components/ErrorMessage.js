@@ -1,11 +1,11 @@
 import React from "react";
 
-import classes from "./ErrorMessage.modules.css";
+import classes from "./ErrorMessage.module.css";
 
 const ErrorMessage = ({ message }) => {
   return (
-    <div>
-      <p className={classes.error}>⛔️ {message}</p>
+    <div className={classes.wrapper}>
+      <p className={classes.error}>⛔️ {message} ⛔️</p>
     </div>
   );
 };

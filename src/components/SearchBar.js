@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "./SearchBar.module.css";
 
-const SearchBar = ({ searchMovie, setSearchMovie }) => {
+const SearchBar = ({ searchMovie, onSearchMovie }) => {
   return (
     <section className={classes["search-bar"]}>
       <label className={classes["search-label"]}>Search movie</label>
@@ -11,7 +11,7 @@ const SearchBar = ({ searchMovie, setSearchMovie }) => {
         type="search"
         value={searchMovie}
         onChange={(e) => {
-          setSearchMovie(e.target.value);
+          onSearchMovie(e.target.value);
         }}
       />
     </section>

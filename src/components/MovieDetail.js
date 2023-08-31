@@ -61,9 +61,9 @@ const MovieDetail = ({
       >
         {movieAdded ? "Movie added" : "Add movie"}
       </button>
-      <butto className={classes["close-detail"]} onClick={onCloseDetail}>
+      <button className={classes["close-detail"]} onClick={onCloseDetail}>
         Close detail
-      </butto>
+      </button>
     </div>
   );
 };
