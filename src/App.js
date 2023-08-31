@@ -75,17 +75,25 @@ const App = () => {
     setSelectedId(null);
   };
 
+  const closeDetail = () => {
+    setSelectedId(null);
+  };
+
   const favMoviesAmount = favouriteMovies.length;
+
   const favMoviesTotalTime = favouriteMovies
     .map((movie) => Number(movie.runtime.split(" ")[0]))
     .reduce((acc, currRunTime) => acc + currRunTime, 0)
     .toFixed(0);
-  const favMoviesAverageRating = (
-    favouriteMovies.reduce(
-      (acc, currMovie) => acc + Number(currMovie.rating),
-      0
-    ) / favMoviesAmount
-  ).toFixed(1);
+
+  const favMoviesAverageRating = favouriteMovies.length
+    ? (
+        favouriteMovies.reduce(
+          (acc, currMovie) => acc + Number(currMovie.rating),
+          0
+        ) / favMoviesAmount
+      ).toFixed(1)
+    : 0;
 
   const removeFromFavourites = (id) => {
     setFavouriteMovies((prevFavourites) =>
@@ -96,7 +104,6 @@ const App = () => {
   const movieAdded = favouriteMovies
     .map((movie) => movie.id)
     .includes(selectedId);
-  console.log(movieAdded);
 
   return (
     <MainWrapper>
@@ -113,6 +120,7 @@ const App = () => {
           movieId={selectedId}
           onAddToFavourite={addToFavourite}
           movieAdded={movieAdded}
+          onCloseDetail={closeDetail}
         />
       ) : (
         <FavouriteMoviesList

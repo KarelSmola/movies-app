@@ -4,7 +4,12 @@ import classes from "./MovieDetail.module.css";
 
 const KEY = "668f504b";
 
-const MovieDetail = ({ movieId, onAddToFavourite, movieAdded }) => {
+const MovieDetail = ({
+  movieId,
+  onAddToFavourite,
+  movieAdded,
+  onCloseDetail,
+}) => {
   const [movieDetail, setMovieDetail] = useState([]);
 
   const {
@@ -56,6 +61,9 @@ const MovieDetail = ({ movieId, onAddToFavourite, movieAdded }) => {
       >
         {movieAdded ? "Movie added" : "Add movie"}
       </button>
+      <butto className={classes["close-detail"]} onClick={onCloseDetail}>
+        Close detail
+      </butto>
     </div>
   );
 };
